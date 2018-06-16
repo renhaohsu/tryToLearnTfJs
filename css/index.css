@@ -7,4 +7,11 @@
 
 html {
   font-size: 16px;
-}<div>…</div>
+}
+
+
+@media screen and (min-width: 1000px) {
+	* {
+		font-size: 2rem;
+	}
+}
