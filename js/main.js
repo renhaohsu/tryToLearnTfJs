@@ -103,10 +103,14 @@ database.once('value', function (snapshot) {
 	show.innerHTML = ('');
 	for (var i in snapshot.val()) {
 		show.innerHTML += `<div>
-      <div class="time"> ${snapshot.val()[i].time} </div>
-	 	  <div class="name">${snapshot.val()[i].name} ：</div>
-		  <div class="content">${snapshot.val()[i].content} </div>
-    </div>`
+    	  <div class="time"> ${snapshot.val()[i].time} </div>
+	 	  <div class="name">：</div>
+		  <div class="content"></div>
+    	</div>`
+
+    	show.lastElementChild.children[1].innerText = snapshot.val()[i].name +':';
+		show.lastElementChild.children[2].innerText = snapshot.val()[i].content+':';
+	
 	}	
 	
 })
@@ -115,10 +119,13 @@ database.once('value', function (snapshot) {
 database.limitToLast(1).on('value', function (snapshot) {
 	for (var i in snapshot.val()) {
 		show.innerHTML += `<div class="${snapshot.val()[i].id}">
-  		<div class="time"> ${snapshot.val()[i].time} </div>
-      <div class="name">${snapshot.val()[i].name} ：</div>
-      <div class="content">${snapshot.val()[i].content} </div>
-    </div>`
+  	  	  <div class="time"> ${snapshot.val()[i].time} </div>
+    	  <div class="name"></div>
+    	  <div class="content"></div>
+    	</div>`;
+
+    	show.lastElementChild.children[1].innerText = snapshot.val()[i].name +':';
+		show.lastElementChild.children[2].innerText = snapshot.val()[i].content+':';
 	}
 	//如果是自己發出去的文字，就移到右邊
 	let id_ms = document.getElementsByClassName('id'+ms);
