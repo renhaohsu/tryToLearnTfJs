@@ -102,9 +102,11 @@ function write(){
 database.once('value', function (snapshot) {
 	show.innerHTML = ('');
 	for (var i in snapshot.val()) {
-		show.innerHTML += `<div><div> ${snapshot.val()[i].time} </div>
-		${snapshot.val()[i].name} 說：
-		${snapshot.val()[i].content} </div>`
+		show.innerHTML += `<div>
+      <div class="time"> ${snapshot.val()[i].time} </div>
+	 	  <div class="name">${snapshot.val()[i].name} ：</div>
+		  <div class="content">${snapshot.val()[i].content} </div>
+    </div>`
 	}	
 	
 })
@@ -112,12 +114,19 @@ database.once('value', function (snapshot) {
 //每一次資料庫有變動時，獲取最新一筆內容呈現
 database.limitToLast(1).on('value', function (snapshot) {
 	for (var i in snapshot.val()) {
-		show.innerHTML += `<div id="${snapshot.val()[i].id}">
-		<div>${snapshot.val()[i].time} </div>
-		${snapshot.val()[i].name} 說：
-		${snapshot.val()[i].content} </div>`
+		show.innerHTML += `<div class="${snapshot.val()[i].id}">
+  		<div class="time"> ${snapshot.val()[i].time} </div>
+      <div class="name">${snapshot.val()[i].name} ：</div>
+      <div class="content">${snapshot.val()[i].content} </div>
+    </div>`
 	}
-	//如果是自己發出去的文字，就改變顏色
-	var id_ms = document.getElementById('id'+ms);
-	id_ms.style.color = 'red';
+	//如果是自己發出去的文字，就移到右邊
+	let id_ms = document.getElementsByClassName('id'+ms);
+  for (var i = id_ms.length - 1; i >= 0; i--) {
+    id_ms[i].style.display = 'flex';
+    id_ms[i].style.alignItems = 'center';
+    id_ms[i].style.justifyContent = 'flex-end';
+}
+	
 });
+

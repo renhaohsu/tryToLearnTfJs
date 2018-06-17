@@ -3,15 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Chatroom using Firebase</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-	姓名：<input id="UserName"><br/>
-	聊天內容：<input id="UserContent"><br/>
-	<button id="btn">送出資料</button>
-	<div id="show"></div>
+	
+	<div id="im">
+		<div id="input" class="forName">
+			<span> 姓名：</span><input id="UserName"><br/>
+		</div>
+		<div id="input">
+			<div>
+				
+				<span>內容：</span><input id="UserContent"><br/>
+			</div>
+			<button id="btn">送出資料</button>
+		</div>
+		<div id="show"></div>
+	</div>
 
-
+<!-- <div class="todoList">
+	<p>玩家名稱、時間、內容(在js裡)沒給到#id 暫時沒法用css美化</p>
+</div>
+ -->
 	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 	<script src="js/main.js"></script>
 </body>
