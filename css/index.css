@@ -7,23 +7,21 @@ body, html {
 	background-size:cover;
 }
 
-/*#im {
-	position: relative;
-	margin: 0 auto;
-	width: 100%;
-	max-width: 600px;
-	height: 100%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
-	background: rgba(0,0,0,.4);
+* {
+  /*vertical-align: top;*/
+  font-family: '微軟正黑體';
+  /*font-size: 3.5rem;*/
 }
+
+html {
+  font-size: 16px; 
+}
+
 
 #input {
 	position: absolute;
 	z-index: 2;
-	height: 90px;
+	height: 8%;
 	width: 100%;
 	left: 0;
 	bottom: 0;
@@ -35,22 +33,25 @@ body, html {
 	box-sizing: border-box;
 	background: #222;
 	color: #fff;
+	display: flex;
 }
 
 #input input, #input span{
 	display: inline-block;
-	margin: 5px 0;
+	/*margin: 5px 0;*/
 }
 
 #input input{
 	width: 75%;
 	border: none;
 	padding: 5px;
+	max-height: 1.1rem;
 }
 
 #input span{
 	width: 10%;
-	min-width: 50px;
+	min-width: 75px;
+	font-size: 1rem;
 }
 
 #input div{
@@ -70,6 +71,10 @@ body, html {
 	color: #fff;
 }
 
+#input.forName{
+	top: 0;
+	background-color: blue;
+}
 
 
 
@@ -83,15 +88,17 @@ body, html {
   overflow-y:scroll;
   padding:20px;
   box-sizing:border-box;
-
+	
   color: #fff;
 }
 
 #show>div{
+	/*border: 1px solid black;*/
   position:relative;
-  margin:0 0 20px 0;
+  margin:0 0 2rem 0;
   clear:both;
-  height:40px;
+  /*height:40px;*/
+  font-size: 1.15rem;
 }
 
 #show>div>div{
@@ -100,20 +107,21 @@ body, html {
 
 #show .time{
   position:absolute;
-  top:-2px;
-  font-size:10px;
-  color:#777;
+  bottom:-1.3rem;
+  font-size:1.1rem;
+  color:#444;
 }
 
 #show .name{
+	/*background:rgba(50,50,50,.3);*/
   color:#fff;
   vertical-align:middle;
 }
 
 #show .content{
-  background:rgba(255,255,255,.8);
+  background:rgba(0,0,0,.3);
   padding:10px;
-  margin-top:15px;
+  margin:5px;
   margin-left:10px;
   border-radius:5px;
   vertical-align:middle;
@@ -130,67 +138,18 @@ body, html {
   background:rgba(255,255,255,.2);
   border-radius: 2px;
 }
-*/
 
-
-* {
-  /*vertical-align: top;*/
-  font-family: '微軟正黑體';
-  /*font-size: 3.5rem;*/
-}
-
-html {
-  font-size: 16px; 
-}
-
-
-@media screen and (max-width: 800px) {
-	* {
-		font-size: 1.5rem;
-	}
+@media  screen and (max-width: 475px) {
 	
-	#input {
-		position: absolute;
-		z-index: 2;
-		height: 8%;
-		width: 100%;
-		left: 0;
-		bottom: 0;
-		margin: 0;
-		padding: 15px;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		-ms-box-sizing: border-box;
-		box-sizing: border-box;
-		background: #222;
-		color: #fff;
-		/*background-color: red;*/
-	}
-
-	#input input, #input span{
-		display: inline-block;
-		margin: 5px 0;
-	}
-
-	#input input{
-		width: 75%;
-		border: none;
-		padding: 5px;
-		height: 1.4rem;
-	}
-
 	#input span{
+		display: none;
 		width: 10%;
 		min-width: 75px;
 		font-size: 1rem;
 	}
 
-	#input div{
-		width: 80%;
-		float: left;
-	}
-
 	#input button{
+		/*content: '送出';*/
 		float: right;
 		height: 90%;
 		width: 20%;
@@ -202,70 +161,6 @@ html {
 		color: #fff;
 	}
 
-	#input.forName{
-		top: 0;
-		background-color: blue;
-	}
 
-
-	#show{
-	  position:absolute;
-	  top:0;
-	  left:0;
-	  z-index:1;
-	  width:100%;
-	  height:calc(100% - 90px);
-	  overflow-y:scroll;
-	  padding:20px;
-	  box-sizing:border-box;
-
-	  color: #fff;
-	}
-
-	#show>div{
-		/*border: 1px solid black;*/
-	  position:relative;
-	  margin:0 0 2rem 0;
-	  clear:both;
-	  /*height:40px;*/
-	}
-
-	#show>div>div{
-	  display:inline-block;
-	}
-
-	#show .time{
-	  position:absolute;
-	  bottom:-1.3rem;
-	  font-size:1.1rem;
-	  color:#444;
-	}
-
-	#show .name{
-		/*background:rgba(50,50,50,.3);*/
-	  color:#fff;
-	  vertical-align:middle;
-	}
-
-	#show .content{
-	  background:rgba(0,0,0,.3);
-	  padding:10px;
-	  margin:5px;
-	  margin-left:10px;
-	  border-radius:5px;
-	  vertical-align:middle;
-	}
-
-	#show::-webkit-scrollbar {
-	  width:5px;
-	}
-	#show::-webkit-scrollbar-track {
-	  background:rgba(255,255,255,.1);
-	  border-radius: 5px;
-	}
-	#show::-webkit-scrollbar-thumb {
-	  background:rgba(255,255,255,.2);
-	  border-radius: 2px;
-	}
 
 }
