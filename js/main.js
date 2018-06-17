@@ -108,8 +108,8 @@ database.once('value', function (snapshot) {
 		  <div class="content"></div>
     	</div>`
 
-    	show.lastElementChild.children[1].innerText = snapshot.val()[i].name +':';
-		show.lastElementChild.children[2].innerText = snapshot.val()[i].content+':';
+    show.lastElementChild.children[1].innerText = snapshot.val()[i].name +':';
+	  show.lastElementChild.children[2].innerText = snapshot.val()[i].content;
 	
 	}	
 	
@@ -124,8 +124,8 @@ database.limitToLast(1).on('value', function (snapshot) {
     	  <div class="content"></div>
     	</div>`;
 
-    	show.lastElementChild.children[1].innerText = snapshot.val()[i].name +':';
-		show.lastElementChild.children[2].innerText = snapshot.val()[i].content+':';
+    show.lastElementChild.children[1].innerText = snapshot.val()[i].name +':';
+		show.lastElementChild.children[2].innerText = snapshot.val()[i].content;
 	}
 	//如果是自己發出去的文字，就移到右邊
 	let id_ms = document.getElementsByClassName('id'+ms);
