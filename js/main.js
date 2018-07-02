@@ -112,38 +112,37 @@ function draw() {
 
 
 
-
-	if (x_vals.length>0) {
-	const ys = tf.tensor1d(y_vals);
-	optimizer.minimize(() => loss(predict(x_vals), ys));
-	}
-
+	tf.tidy(() => {
+		if (x_vals.length>0) {
+			const ys = tf.tensor1d(y_vals);
+			optimizer.minimize(() => loss(predict(x_vals), ys));
+		}
+	});
+	// tf.tidy是為了避免太多tensor占據記憶體造成memory leak
 
 
 	const xs = [0, 1];
-	const ys = predict(xs);
+	const ys = tf.tidy(() => predict(xs));
 	// ys.print();
 
 	let x1 = map(xs[0], 0, 1, 0, width);
 	let x2 = map(xs[1], 0, 1, 0, width);
 
 	let lineY = ys.dataSync();
+	ys.dispose();  //避免太多tensor占據記憶體造成memory leak
 	// console.log(lineY);
 	let y1 = map(lineY[0], 0, 1, 0, height);
 	let y2 = map(lineY[1], 0, 1, 0, height);
 
 	ctx.beginPath();
-    ctx.strokeStyle = "blue";
+   	ctx.strokeStyle = "blue";
 	ctx.moveTo(x1, y1);
 	ctx.lineTo(x2, y2);
 	ctx.stroke();
 
 
 
-
-
-
-
+	// console.log(tf.memory().numTensors);
 
 
 
